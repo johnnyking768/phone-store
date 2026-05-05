@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>Prestige Devices | Premium Phones & Laptops</title>
+  <meta name="description" content="Premium smartphones and laptops with luxury service — shop the latest tech with white-glove delivery.">
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ===== RESET & BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1e2a3e;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
+    }
+
+    :root {
+      --gold: #c8a86b;
+      --gold-dark: #a8894e;
+      --dark: #0a0f1c;
+      --gray-50: #fafafc;
+      --gray-100: #f8fafc;
+      --gray-200: #eef2f6;
+      --gray-800: #1e293b;
+      --shadow-sm: 0 10px 25px -5px rgba(0,0,0,0.05);
+      --shadow-lg: 0 20px 35px -12px rgba(0,0,0,0.12);
+      --transition: all 0.4s cubic-bezier(0.2, 0.95, 0.4, 1);
+    }
+
+    /* ===== STICKY HEADER (touch-optimized) ===== */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+      width: 100%;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0.85rem 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #1e2a3e, #c8a86b);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #1e2a3e;
+      transition: var(--transition);
+      font-size: 0.95rem;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      color: #1e2a3e;
+      min-width: 44px;
+      min-height: 44px;
+    }
+
+    /* sections fluid */
+    section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+    }
+
+    /* buttons large tap targets */
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.5rem;
+      border-radius: 40px;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      text-align: center;
+      min-height: 48px;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #fff;
+      box-shadow: 0 8px 18px rgba(200,168,107,0.25);
+    }
+    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      background: transparent;
+    }
+    .btn-outline:hover { background: var(--gold); color: white; }
+
+    /* Hero with device-focused vibe */
+    .hero {
+      min-height: 60vh;
+      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('https://images.pexels.com/photos/280221/pexels-photo-280221.jpeg?auto=compress&cs=tinysrgb&w=1600') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      width: 100%;
+    }
+    .hero-content h1 { font-size: clamp(1.8rem, 7vw, 3.2rem); font-weight: 700; margin-bottom: 0.8rem; line-height: 1.2; }
+    .hero-content p { font-size: clamp(0.9rem, 4vw, 1.2rem); margin-bottom: 1.8rem; padding: 0 0.5rem; }
+
+    /* Grid perfect for mobile */
+    .property-grid, .team-grid, .services-grid, .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+    .card-img {
+      height: 220px;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.4s;
+      cursor: pointer;
+      width: 100%;
+    }
+    .card-content { padding: 1rem 1.2rem; flex: 1; }
+    .price { color: var(--gold); font-weight: 700; font-size: 1.25rem; margin: 0.4rem 0; }
+
+    /* why choose us grid adaptable */
+    .why-container {
+      background: linear-gradient(135deg, #fefcf7 0%, #ffffff 100%);
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      margin-top: 1rem;
+    }
+    .why-grid-premium {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+    .why-card-premium {
+      background: white;
+      padding: 1.5rem 1rem;
+      border-radius: 1.25rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .why-card-premium i { font-size: 2.2rem; color: var(--gold); margin-bottom: 0.8rem; }
+    .why-card-premium h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+
+    /* Testimonials slider touch friendly */
+    .testimonial-section {
+      background: var(--gray-100);
+      border-radius: 1.5rem;
+      padding: 1.5rem 1rem;
+    }
+    .testimonial-slider-modern {
+      max-width: 900px;
+      margin: 1rem auto;
+      background: white;
+      border-radius: 1.5rem;
+      padding: 1.2rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .testimonial-track-modern {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .testimonial-item-modern {
+      min-width: 100%;
+      padding: 0.2rem;
+      text-align: center;
+    }
+    .client-avatar-modern {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 0.8rem;
+      border: 3px solid var(--gold);
+    }
+    .testimonial-text-modern { font-size: 0.95rem; line-height: 1.45; max-width: 90%; margin: 0 auto; }
+    .slider-btn-modern {
+      background: var(--gold);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      margin: 0 0.4rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    /* filter bar 100% responsive */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+      background: var(--gray-100);
+      padding: 1rem;
+      border-radius: 60px;
+      align-items: center;
+    }
+    .filter-bar select, .filter-bar input {
+      padding: 0.7rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #e2e8f0;
+      background: white;
+      font-family: inherit;
+      flex: 1;
+      min-width: 130px;
+      font-size: 0.9rem;
+    }
+
+    /* property detail fully responsive */
+    .property-detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .map-placeholder {
+      height: 180px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    /* lightbox mobile */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.25s;
+    }
+    .lightbox.active { visibility: visible; opacity: 1; }
+    .lightbox img { max-width: 92%; max-height: 75%; border-radius: 1rem; object-fit: contain; }
+    .close-lightbox {
+      position: absolute; top: 20px; right: 30px;
+      color: white; font-size: 38px; cursor: pointer;
+    }
+
+    /* footer premium responsive */
+    .footer-premium {
+      background: #0a0f1c;
+      color: #cbd5e1;
+      padding: 2rem 1rem 1rem;
+      margin-top: 2rem;
+      width: 100%;
+    }
+    .footer-premium-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .footer-col h4 { color: white; margin-bottom: 0.8rem; font-size: 1rem; }
+    .footer-col a, .footer-col p { font-size: 0.85rem; margin: 0.3rem 0; display: inline-block; }
+    .newsletter-group-premium {
+      display: flex;
+      gap: 0.5rem;
+      margin: 0.8rem 0;
+      flex-wrap: wrap;
+    }
+    .newsletter-group-premium input {
+      flex: 1;
+      padding: 0.7rem;
+      border-radius: 40px;
+      border: none;
+      background: #1e293b;
+      color: white;
+      min-width: 120px;
+    }
+    .copyright-premium {
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1rem;
+      font-size: 0.7rem;
+    }
+
+    /* fade animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============== RESPONSIVE BREAKPOINTS MOBILE-FIRST ============== */
+    @media (max-width: 880px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(16px);
+        flex-direction: column;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        padding: 1.8rem 1.5rem;
+        box-shadow: 4px 0 25px rgba(0,0,0,0.15);
+        transition: 0.3s ease-in-out;
+        gap: 1.2rem;
+        align-items: flex-start;
+        border-radius: 0 20px 0 0;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .nav-links a {
+        font-size: 1.1rem;
+        width: 100%;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+      }
+      .hamburger {
+        display: block;
+      }
+      .hero-content h1 { font-size: 1.9rem; }
+      .filter-bar {
+        flex-direction: column;
+        border-radius: 28px;
+        align-items: stretch;
+      }
+      .filter-bar select, .filter-bar input {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 1.8rem 0.9rem; }
+      .property-grid, .team-grid, .services-grid, .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .property-detail-grid {
+        grid-template-columns: 1fr;
+      }
+      .why-grid-premium {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        min-height: 55vh;
+      }
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+      .hero-content div {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .footer-premium-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-col h4:after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .social-icons-modern i {
+        margin: 0 0.6rem;
+      }
+      .newsletter-group-premium {
+        justify-content: center;
+      }
+      .card-img {
+        height: 200px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 1.3rem;
+      }
+      .hero-content h1 {
+        font-size: 1.7rem;
+      }
+      .hero-content p {
+        font-size: 0.85rem;
+      }
+      .price {
+        font-size: 1.1rem;
+      }
+      .why-card-premium {
+        padding: 1rem;
+      }
+      .slider-btn-modern {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+      }
+      .testimonial-text-modern {
+        font-size: 0.85rem;
+      }
+      .footer-premium {
+        padding: 1.5rem 0.8rem;
+      }
+    }
+
+    /* extra small devices (320px) */
+    @media (max-width: 360px) {
+      .hero-content h1 {
+        font-size: 1.5rem;
+      }
+      .nav-links {
+        width: 85%;
+      }
+      .card-content {
+        padding: 0.9rem;
+      }
+      .client-avatar-modern {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    /* ultra-wide & landscape improvements */
+    @media (min-width: 1400px) {
+      section, .nav-container, .footer-premium-container {
+        max-width: 1500px;
+      }
+    }
+
+    /* prevent horizontal scroll & touch improvements */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+    button, .btn, a, .card-img {
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+    input, select, textarea {
+      font-size: 16px;
+    }
+    button:active, .btn:active {
+      transform: scale(0.97);
+    }
+    * {
+      min-width: 0;
+    }
+  </style>
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-container">
+    <div class="logo">📱 Prestige Devices</div>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+    <div class="nav-links" id="navLinks">
+      <a href="#" data-page="home">Home</a>
+      <a href="#" data-page="about">About</a>
+      <a href="#" data-page="services">Services</a>
+      <a href="#" data-page="properties">Devices</a>
+      <a href="#" data-page="property-details">Details</a>
+      <a href="#" data-page="gallery">Gallery</a>
+      <a href="#" data-page="contact">Contact</a>
+    </div>
+  </div>
+</header>
+
+<main id="app-root"></main>
+
+<footer class="footer-premium">
+  <div class="footer-premium-container">
+    <div class="footer-premium-grid">
+      <div class="footer-col">
+        <h3 style="color:white; margin-bottom:0.8rem; font-size:1.4rem;">📱 Prestige Devices</h3>
+        <p>Premium smartphones & laptops, white-glove service worldwide.</p>
+        <div class="social-icons-modern" style="margin-top:1rem;">
+          <i class="fab fa-instagram"></i> <i class="fab fa-facebook-f"></i> <i class="fab fa-twitter"></i> <i class="fab fa-linkedin-in"></i>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#" data-page="home">Home</a><br>
+        <a href="#" data-page="about">About</a><br>
+        <a href="#" data-page="services">Services</a><br>
+        <a href="#" data-page="properties">Devices</a><br>
+        <a href="#" data-page="gallery">Gallery</a><br>
+        <a href="#" data-page="contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Info</h4>
+        <p><i class="fas fa-phone-alt" style="width:25px;"></i> +234 812 163 8903</p>
+        <p><i class="fas fa-envelope"></i> hello@prestigedevices.com</p>
+        <p><i class="fas fa-map-pin"></i> 12 Park Avenue, Victoria Island, Lagos</p>
+        <p><i class="far fa-clock"></i> Mon-Sat: 9am - 7pm</p>
+      </div>
+      <div class="footer-col">
+        <h4>Exclusive Newsletter</h4>
+        <p>Get latest drops & tech insights.</p>
+        <div class="newsletter-group-premium">
+          <input type="email" id="footerNewsEmail" placeholder="Your email">
+          <button id="footerNewsBtn">→</button>
+        </div>
+        <p id="footerNewsMsg" style="font-size:11px; margin-top:6px;"></p>
+      </div>
+    </div>
+    <div class="copyright-premium">© 2025 Prestige Devices — Premium Tech. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // PRODUCT DATA (phones & laptops with prices/images)
+  const propertiesData = [
+    { id: 1, title: "iPhone 15 Pro Max", price: 1299, location: "Apple Store", type: "Phone", size: "6.9\" Display", img: "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800", desc: "A17 Pro chip, titanium design, pro camera system." },
+    { id: 2, title: "Samsung Galaxy S24 Ultra", price: 1199, location: "Samsung Store", type: "Phone", size: "6.8\" AMOLED", img: "https://images.pexels.com/photos/404524/pexels-photo-404524.jpeg?auto=compress&cs=tinysrgb&w=800", desc: "AI-powered, 200MP camera, S Pen included." },
+    { id: 3, title: "MacBook Pro 16\"", price: 2499, location: "Apple Online", type: "Laptop", size: "16.2\" Liquid Retina", img: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800", desc: "M3 Max chip, 36GB RAM, ideal for creators." },
+    { id: 4, title: "Dell XPS 15", price: 1899, location: "Dell Store", type: "Laptop", size: "15.6\" OLED", img: "https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800", desc: "InfinityEdge display, Intel Core i9, RTX 4060." },
+    { id: 5, title: "Google Pixel 8 Pro", price: 999, location: "Google Store", type: "Phone", size: "6.7\" LTPO", img: "https://images.pexels.com/photos/404124/pexels-photo-404124.jpeg?auto=compress&cs=tinysrgb&w=800", desc: "Advanced AI, superb camera, pure Android." },
+    { id: 6, title: "ASUS ROG Zephyrus G14", price: 1599, location: "ASUS Store", type: "Laptop", size: "14\" 120Hz", img: "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800", desc: "Gaming laptop, Ryzen 9, RTX 4070." },
+    { id: 7, title: "OnePlus 12", price: 799, location: "OnePlus Store", type: "Phone", size: "6.82\" Fluid AMOLED", img: "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800", desc: "Snapdragon 8 Gen 3, 100W charging." },
+    { id: 8, title: "Surface Laptop Studio 2", price: 2199, location: "Microsoft Store", type: "Laptop", size: "14.4\" Touch", img: "https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800", desc: "Dynamic woven hinge, RTX 4060, versatile modes." }
+  ];
+  const teamMembers = [
+    { name: "Sarah Johnson", role: "CEO & Founder", img: "https://randomuser.me/api/portraits/women/68.jpg" },
+    { name: "Michael Chen", role: "Head of Sales", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { name: "Elena Rossi", role: "Luxury Consultant", img: "https://randomuser.me/api/portraits/women/44.jpg" }
+  ];
+  const servicesData = [
+    { icon: "fas fa-mobile-alt", title: "Device Sourcing", desc: "Find limited edition & latest flagship phones globally." },
+    { icon: "fas fa-chart-line", title: "Trade-in Valuation", desc: "AI-powered pricing for your old tech." },
+    { icon: "fas fa-shield-alt", title: "Premium Warranty", desc: "2-year extended protection & priority support." },
+    { icon: "fas fa-concierge-bell", title: "White-Glove Setup", desc: "On-site configuration & data migration." }
+  ];
+  const testimonialsData = [
+    { name: "Amanda Clarke", role: "Tech Investor", text: "Incredible service, my new MacBook arrived within hours. Seamless experience.", img: "https://randomuser.me/api/portraits/women/79.jpg" },
+    { name: "James Wilson", role: "CEO, Startup", text: "They found me a rare Pixel 8 Pro bundle. Unmatched attention.", img: "https://randomuser.me/api/portraits/men/52.jpg" },
+    { name: "Linda Martinez", role: "Designer", text: "Premium from start to finish. My new Surface Studio is a game-changer.", img: "https://randomuser.me/api/portraits/women/90.jpg" }
+  ];
+  const galleryImages = [
+    "https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/404524/pexels-photo-404524.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/7974/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/404124/pexels-photo-404124.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ];
+
+  function createProductCard(p) {
+    return `<div class="card fade-in property-card" data-id="${p.id}">
+      <div class="card-img" style="background-image: url('${p.img}');"></div>
+      <div class="card-content">
+        <h3>${p.title}</h3>
+        <div class="price">$${p.price.toLocaleString()}</div>
+        <p><i class="fas fa-store"></i> ${p.location}</p>
+        <p><i class="fas fa-microchip"></i> ${p.type} · ${p.size}</p>
+        <button class="btn btn-outline view-detail" data-id="${p.id}">View Details</button>
+      </div>
+    </div>`;
+  }
+
+  function attachDetailButtons() {
+    document.querySelectorAll('.view-detail').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const id = parseInt(btn.dataset.id);
+        const prop = propertiesData.find(p => p.id === id);
+        if(prop) { sessionStorage.setItem('detailProp', JSON.stringify(prop)); navigateToPage('property-details'); }
+      });
+    });
+  }
+
+  function navigateToPage(pageId) { history.pushState({}, '', `#${pageId}`); loadPage(pageId); }
+  function loadPage(pageId) {
+    const container = document.getElementById('app-root');
+    if (!container) return;
+    window.scrollTo(0,0);
+    if (pageId === 'home') renderHome(container);
+    else if (pageId === 'about') renderAbout(container);
+    else if (pageId === 'services') renderServices(container);
+    else if (pageId === 'properties') renderProperties(container);
+    else if (pageId === 'property-details') renderPropertyDetails(container);
+    else if (pageId === 'gallery') renderGallery(container);
+    else if (pageId === 'contact') renderContact(container);
+    else renderHome(container);
+    attachFadeObserver();
+    if(document.querySelector('.hamburger')) document.getElementById('navLinks')?.classList.remove('active');
+  }
+
+  function renderHome(container) {
+    container.innerHTML = `
+      <section class="hero"><div class="hero-content"><h1>Next‑Gen Devices. Elite Service.</h1><p>Discover premium phones & laptops with white-glove delivery</p><div style="margin-top:1.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;"><button class="btn btn-primary" data-nav="properties">Shop Now</button> <button class="btn btn-outline" style="background:white;color:#111;" data-nav="contact">Contact Concierge</button></div></div></section>
+      <section><h2 class="fade-in">🔍 Quick Search</h2><div class="filter-bar fade-in"><input type="text" id="quickLoc" placeholder="Brand / Store"><select id="quickType"><option value="">All Types</option><option>Phone</option><option>Laptop</option></select><button id="quickSearchHomeBtn" class="btn-primary btn">Search</button></div></section>
+      <section><h2 class="fade-in">⚡ Featured Devices</h2><div id="featuredGrid" class="property-grid"></div></section>
+      <section><h2 class="fade-in">Why Prestige Devices — The Tech Authority</h2><div class="why-container"><div class="why-grid-premium"><div class="why-card-premium"><i class="fas fa-crown"></i><h3>12+ Years Excellence</h3><p>$500M+ in premium tech transactions, 99% satisfaction.</p></div><div class="why-card-premium"><i class="fas fa-globe-americas"></i><h3>Global Sourcing</h3><p>Exclusive access to limited releases and rare bundles.</p></div><div class="why-card-premium"><i class="fas fa-chart-line"></i><h3>AI Smart Valuation</h3><p>Real-time market insights for best trade‑in values.</p></div><div class="why-card-premium"><i class="fas fa-hand-sparkles"></i><h3>White‑Glove Setup</h3><p>Personalized onboarding + 24/7 priority support.</p></div></div></div></section>
+      <section class="testimonial-section"><h2 class="fade-in">Trusted by Tech Leaders</h2><div class="testimonial-slider-modern"><div class="testimonial-track-modern" id="testTrackModern"></div><div style="text-align:center; margin-top:1.2rem;"><button class="slider-btn-modern" id="prevTestBtnM">←</button><button class="slider-btn-modern" id="nextTestBtnM">→</button></div></div></section>
+    `;
+    document.getElementById('featuredGrid').innerHTML = propertiesData.slice(0,6).map(p => createProductCard(p)).join('');
+    const trackDiv = document.getElementById('testTrackModern');
+    trackDiv.innerHTML = testimonialsData.map(t => `<div class="testimonial-item-modern"><img src="${t.img}" class="client-avatar-modern" alt="${t.name}"><div class="client-name-modern">${t.name}</div><div class="client-role-modern">${t.role}</div><div class="testimonial-text-modern">“${t.text}”</div><div style="color:var(--gold); margin-top:0.8rem;">★★★★★</div></div>`).join('');
+    let idx=0; const update=()=>{ trackDiv.style.transform = `translateX(-${idx*100}%)`; };
+    document.getElementById('prevTestBtnM')?.addEventListener('click',()=>{ idx=(idx-1+testimonialsData.length)%testimonialsData.length; update(); });
+    document.getElementById('nextTestBtnM')?.addEventListener('click',()=>{ idx=(idx+1)%testimonialsData.length; update(); });
+    document.getElementById('quickSearchHomeBtn')?.addEventListener('click',()=>{ sessionStorage.setItem('filterLoc', document.getElementById('quickLoc').value); sessionStorage.setItem('filterType', document.getElementById('quickType').value); navigateToPage('properties'); });
+    attachDetailButtons();
+  }
+  function renderAbout(container) { container.innerHTML = `<section><h2>About Prestige Devices</h2><p style="font-size:1rem;">Since 2012, defining premium tech retail with integrity.</p><div class="why-grid-premium"><div class="why-card-premium"><i class="fas fa-bullseye"></i><h3>Mission</h3><p>Redefine device ownership with seamless luxury.</p></div><div class="why-card-premium"><i class="fas fa-eye"></i><h3>Vision</h3><p>Global leader in high-end tech concierge.</p></div></div><h3>Leadership</h3><div class="team-grid" id="teamGrid"></div></section>`; document.getElementById('teamGrid').innerHTML = teamMembers.map(m => `<div class="card"><img src="${m.img}" style="width:100%;height:200px;object-fit:cover;"><div class="card-content"><h3>${m.name}</h3><p style="color:var(--gold);">${m.role}</p></div></div>`).join(''); }
+  function renderServices(container) { container.innerHTML = `<section><h2>Our Premium Services</h2><div class="services-grid" id="servicesGrid"></div></section>`; document.getElementById('servicesGrid').innerHTML = servicesData.map(s => `<div class="card"><div class="card-content"><i class="${s.icon}" style="font-size:2.4rem;color:var(--gold);"></i><h3>${s.title}</h3><p>${s.desc}</p></div></div>`).join(''); }
+  function renderProperties(container) {
+    let filterLoc = sessionStorage.getItem('filterLoc')||'', filterType = sessionStorage.getItem('filterType')||'';
+    sessionStorage.removeItem('filterLoc'); sessionStorage.removeItem('filterType');
+    container.innerHTML = `<section><h2>Exclusive Devices</h2><div class="filter-bar"><input id="propLocation" placeholder="Store/Brand" value="${filterLoc}"><select id="propType"><option value="">All Types</option><option>Phone</option><option>Laptop</option></select><button id="filterPropsBtn" class="btn-primary btn">Filter</button></div><div id="propGrid" class="property-grid"></div></section>`;
+    const apply = () => { let filtered = propertiesData.filter(p => (!document.getElementById('propLocation').value || p.location.toLowerCase().includes(document.getElementById('propLocation').value.toLowerCase())) && (!document.getElementById('propType').value || p.type === document.getElementById('propType').value)); document.getElementById('propGrid').innerHTML = filtered.map(c => createProductCard(c)).join(''); attachDetailButtons(); };
+    document.getElementById('filterPropsBtn').addEventListener('click', apply);
+    if(filterType) setTimeout(()=>{ document.getElementById('propType').value = filterType; apply(); },20);
+    else apply();
+  }
+  function renderPropertyDetails(container) {
+    const prop = sessionStorage.getItem('detailProp') ? JSON.parse(sessionStorage.getItem('detailProp')) : propertiesData[0];
+    container.innerHTML = `<section><h2>${prop.title}</h2><div class="property-detail-grid"><div><img id="detailMainImage" src="${prop.img}" style="width:100%; border-radius:1rem;"><div style="margin:0.8rem 0; text-align:center;"><button id="pdPrev" class="slider-btn-modern">←</button><button id="pdNext" class="slider-btn-modern">→</button></div><div class="map-placeholder"><i class="fas fa-map-marker-alt"></i> Official Partner: ${prop.location}</div></div><div><p>${prop.desc}</p><ul style="margin:1rem 0; list-style:none;"><li>📱 ${prop.type}</li><li>📐 ${prop.size}</li><li>✅ 2-year warranty included</li><li>🚚 Express shipping + setup</li></ul><h3>Request a private demo</h3><form id="inquiryFormDetail"><input placeholder="Full Name" required><input placeholder="Email" required><textarea placeholder="Message"></textarea><button type="submit" class="btn-primary">Send Request</button></form></div></div></section>`;
+    const images = [prop.img, ...galleryImages]; let idx=0; const imgEl = document.getElementById('detailMainImage');
+    document.getElementById('pdPrev')?.addEventListener('click',()=>{ idx=(idx-1+images.length)%images.length; imgEl.src=images[idx]; });
+    document.getElementById('pdNext')?.addEventListener('click',()=>{ idx=(idx+1)%images.length; imgEl.src=images[idx]; });
+    document.getElementById('inquiryFormDetail')?.addEventListener('submit',(e)=>{ e.preventDefault(); alert("✅ Demo request sent! Our tech concierge will reach out."); e.target.reset(); });
+  }
+  function renderGallery(container) { container.innerHTML = `<section><h2>Device Gallery</h2><div class="gallery-grid" id="galleryGrid"></div><div id="lightbox" class="lightbox"><img id="lightboxImg"><span class="close-lightbox">&times;</span></div></section>`; const grid = document.getElementById('galleryGrid'); grid.innerHTML = galleryImages.map(img => `<div class="card"><div class="card-img" style="background-image:url('${img}'); cursor:pointer;" data-img="${img}"></div></div>`).join(''); const lightbox = document.getElementById('lightbox'); const lbImg = document.getElementById('lightboxImg'); document.querySelectorAll('.card-img').forEach(el => { el.addEventListener('click', () => { lbImg.src = el.dataset.img; lightbox.classList.add('active'); }); }); document.querySelector('.close-lightbox')?.addEventListener('click',()=> lightbox.classList.remove('active')); lightbox?.addEventListener('click',(e)=>{ if(e.target===lightbox) lightbox.classList.remove('active'); }); }
+  function renderContact(container) { container.innerHTML = `<section><h2>Contact Our Tech Concierge</h2><div style="display:flex; flex-wrap:wrap; gap:1.5rem;"><form id="contactPageForm" style="flex:1;"><input placeholder="Full Name" required><input type="email" placeholder="Email" required><textarea placeholder="Your message"></textarea><button class="btn-primary">Send Message</button><p id="contactFeedback"></p></form><div style="flex:1;"><h3>📍 Showroom</h3><p><i class="fas fa-phone"></i> +234 812 163 8903</p><p>12 Park Avenue, Lagos, Nigeria</p><div style="height:160px;background:#eef2f6;border-radius:1rem;display:flex;align-items:center;justify-content:center;">📌 Premium Location</div></div></div></section>`; document.getElementById('contactPageForm')?.addEventListener('submit', (e) => { e.preventDefault(); document.getElementById('contactFeedback').innerHTML = "✅ Message delivered. We reply within 12h."; e.target.reset(); }); }
+  function attachFadeObserver() { const fades = document.querySelectorAll('.fade-in'); const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 }); fades.forEach(el => obs.observe(el)); }
+  function globalEventBindings() {
+    const hamburger = document.getElementById('hamburger'), navLinks = document.getElementById('navLinks');
+    if(hamburger) hamburger.addEventListener('click', () => navLinks.classList.toggle('active'));
+    document.querySelectorAll('[data-page]').forEach(link => { link.addEventListener('click', (e) => { e.preventDefault(); const page = link.getAttribute('data-page'); if(page) navigateToPage(page); navLinks?.classList.remove('active'); }); });
+    document.querySelectorAll('[data-nav]').forEach(btn => { btn.addEventListener('click', (e) => { const page = btn.getAttribute('data-nav'); if(page) navigateToPage(page); }); });
+    document.getElementById('footerNewsBtn')?.addEventListener('click',()=>{ const email = document.getElementById('footerNewsEmail'); if(email.value.includes('@')) { document.getElementById('footerNewsMsg').innerText = '✓ Subscribed!'; email.value=''; } else document.getElementById('footerNewsMsg').innerText = 'Valid email please.'; });
+  }
+  window.addEventListener('DOMContentLoaded', () => { const hash = window.location.hash.slice(1) || 'home'; loadPage(hash); globalEventBindings(); });
+  window.addEventListener('popstate', () => { const hash = window.location.hash.slice(1) || 'home'; loadPage(hash); });
+</script>
+</body>
+</html>
